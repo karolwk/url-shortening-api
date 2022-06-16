@@ -7,6 +7,7 @@ import {
   ListItemText,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { padding } from '@mui/system';
 import React from 'react';
 import Logo from '../../assets/Logo';
 import TextList from '../common/TextList/TextList';
@@ -27,7 +28,8 @@ const Footer = (props: Props) => {
         key={ele}
         subheader={<Typography variant="h5">{ele}</Typography>}
         listItems={obj[ele]}
-        sx={{ padding: 0, textAlign: 'center' }}
+        sx={{ padding: 0, textAlign: { xs: 'center', md: 'unset' } }}
+        listItemSx={{ textAlign: { xs: 'center', md: 'unset' } }}
       />
     ));
   };
