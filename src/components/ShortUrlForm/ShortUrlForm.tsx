@@ -9,6 +9,8 @@ import {
   Typography,
   Divider,
 } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
@@ -20,6 +22,7 @@ import { useGetShortedDataMutation } from '../../store/services/api';
 type Props = {};
 
 const ShortUrlForm = (props: Props) => {
+  const [open, setOpen] = useState(true);
   const [clickedBtn, setClickedBtn] = useState(-1);
   const [validateError, setValidateError] = useState(false);
   const [inputState, setInputState] = useState('');
@@ -30,7 +33,8 @@ const ShortUrlForm = (props: Props) => {
   const getData = async (url: string) => {
     try {
       await shortDomain(url);
-      setInputState('');
+      !open && setOpen(true);
+      inputState && setInputState('');
     } catch {
       console.log(error);
     }
@@ -61,14 +65,21 @@ const ShortUrlForm = (props: Props) => {
     let errMsg;
 
     if ('status' in err) {
-      errMsg = 'error' in err ? err.error : JSON.stringify(err.data);
+      //@ts-ignore
+      errMsg = 'error' in err ? err.error : err.data.error;
     } else {
       errMsg = err.message;
     }
 
     return (
-      <Snackbar open={true}>
-        <Alert severity="error">{`Something went wrong! Error details: ${errMsg}`}</Alert>
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={() => setOpen(false)}
+      >
+        <Alert severity="error" onClose={() => setOpen(false)}>
+          {`Something went wrong! Error details: ${errMsg}`}
+        </Alert>
       </Snackbar>
     );
   };
@@ -136,7 +147,7 @@ const ShortUrlForm = (props: Props) => {
             maxHeight: '3em',
           }}
         >
-          Shoren it!
+          {isLoading ? 'Loading...' : 'Shorten it!'}
         </LoadingButton>
       </Box>
 
@@ -150,12 +161,18 @@ const ShortUrlForm = (props: Props) => {
             padding: '1em',
           }}
         >
-          <Typography>{ele.result.original_link}</Typography>
+          <Typography
+            sx={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
+          >
+            {ele.result.original_link}
+          </Typography>
           <Divider sx={{ display: { xs: 'block', md: 'none' } }} />
 
           <Typography> {ele.result.full_short_link2}</Typography>
           {clickedBtn === index ? (
-            <Button disabled>Copied!</Button>
+            <Button disabled sx={{ backgroundColor: 'purple !important' }}>
+              Copied!
+            </Button>
           ) : (
             <Button
               variant="contained"
