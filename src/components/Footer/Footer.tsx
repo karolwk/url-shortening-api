@@ -7,8 +7,12 @@ import {
   ListItemText,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { padding } from '@mui/system';
+
 import React from 'react';
+import IconFacebook from '../../assets/IconFacebook';
+import IconInstagram from '../../assets/IconInstagram';
+import IconPinterest from '../../assets/IconPinterest';
+import IconTwitter from '../../assets/IconTwitter';
 import Logo from '../../assets/Logo';
 import TextList from '../common/TextList/TextList';
 
@@ -55,8 +59,14 @@ const Footer = (props: Props) => {
           gap: '5rem',
         }}
       >
-        <Logo color="white" />
+        <Logo htmlColor="white" />
         {generateList(links)}
+        <Box sx={{ display: 'flex', gap: '1em', flexWrap: 'wrap' }}>
+          <IconFacebook />
+          <IconTwitter />
+          <IconPinterest />
+          <IconInstagram />
+        </Box>
       </Box>
     </Container>
   );
