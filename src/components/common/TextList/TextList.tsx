@@ -11,8 +11,8 @@ const TextList = ({ listItems, subheader, sx, listItemSx }: Props) => {
   return (
     <List sx={sx} subheader={subheader}>
       {listItems.map((ele) => (
-        <ListItem key={ele}>
-          <ListItemText sx={listItemSx} primary={ele} />
+        <ListItem key={ele} sx={listItemSx}>
+          <ListItemText primary={ele} />
         </ListItem>
       ))}
     </List>
