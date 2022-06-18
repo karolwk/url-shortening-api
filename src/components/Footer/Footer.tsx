@@ -1,14 +1,6 @@
-import {
-  Box,
-  Container,
-  Typography,
-  List,
-  ListItem,
-  ListItemText,
-} from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-import React from 'react';
 import IconFacebook from '../../assets/IconFacebook';
 import IconInstagram from '../../assets/IconInstagram';
 import IconPinterest from '../../assets/IconPinterest';
@@ -26,14 +18,26 @@ const Footer = (props: Props) => {
     company: ['About', 'Our Team', 'Careers', 'Contact'],
   };
 
-  const generateList = (obj: any) => {
+  const generateFooterColumns = (obj: any) => {
     return Object.keys(obj).map((ele) => (
       <TextList
         key={ele}
-        subheader={<Typography variant="h5">{ele}</Typography>}
+        sx={{
+          flex: 1,
+          padding: 0,
+          alignSelf: { md: 'start' },
+          textAlign: { xs: 'center', md: 'unset' },
+        }}
+        listItemSx={{
+          paddingLeft: { md: 0 },
+          textAlign: { xs: 'center', md: 'unset' },
+        }}
+        subheader={
+          <Typography variant="h5" color="white" sx={{ marginBottom: '10px' }}>
+            {ele[0].toUpperCase() + ele.slice(1).toLowerCase()}
+          </Typography>
+        }
         listItems={obj[ele]}
-        sx={{ padding: 0, textAlign: { xs: 'center', md: 'unset' } }}
-        listItemSx={{ textAlign: { xs: 'center', md: 'unset' } }}
       />
     ));
   };
@@ -50,7 +54,7 @@ const Footer = (props: Props) => {
       <Box
         maxWidth="xl"
         sx={{
-          padding: '20px',
+          padding: '3em 2em 2em 2em',
           margin: 'auto',
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
@@ -59,9 +63,13 @@ const Footer = (props: Props) => {
           gap: '5rem',
         }}
       >
-        <Logo htmlColor="white" />
-        {generateList(links)}
-        <Box sx={{ display: 'flex', gap: '1em', flexWrap: 'wrap' }}>
+        <Logo
+          htmlColor="white"
+          sx={{ alignSelf: { md: 'start' }, flex: { md: 1.5 } }}
+        />
+
+        {generateFooterColumns(links)}
+        <Box sx={{ display: 'flex', gap: '1em', flexWrap: 'wrap', flex: 1 }}>
           <IconFacebook />
           <IconTwitter />
           <IconPinterest />
