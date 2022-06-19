@@ -3,7 +3,7 @@ import { Container, Box, Typography, Button } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import ShortUrlForm from '../../components/ShortUrlForm/ShortUrlForm';
-import IconBrandRecognition from '../../assets/IconBrandRecognition';
+import CardIcons from '../../assets/CardIcons';
 import Card from '../../components/Card/Card';
 import Divider from '../../components/Divider/Divider';
 import Footer from '../../components/Footer/Footer';
@@ -72,29 +72,25 @@ const MainView = (props: Props) => {
         <Box
           sx={{
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: { xs: 'column', md: 'row' },
             alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <Card
-            icon={<IconBrandRecognition iconVariant="brandRecognition" />}
+            icon={<CardIcons iconVariant="brandRecognition" />}
             title="Brand Recognition"
             content="Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content"
           />
-          <Divider orientation="vertical" />
+          <Divider orientation={!matches ? 'vertical' : 'horizontal'} />
           <Card
-            icon={<IconBrandRecognition iconVariant="detailedRecords" />}
+            icon={<CardIcons iconVariant="detailedRecords" />}
             title="Detailed Records"
             content="Gain insights int who is clicking your links. Knowing when and where people engage with your content helps inform better decisions."
           />
-          <Divider orientation="vertical" />
+          <Divider orientation={!matches ? 'vertical' : 'horizontal'} />
           <Card
-            icon={
-              <IconBrandRecognition
-                iconVariant="fullyCustomizable"
-                size="48px"
-              />
-            }
+            icon={<CardIcons iconVariant="fullyCustomizable" size="48px" />}
             title="Fully Customizable"
             content="Improve brand awareness and content discoverability through customizable links, supercharging audience engagement."
           />

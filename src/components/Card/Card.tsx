@@ -12,11 +12,13 @@ const Card = ({ icon, title, content }: Props) => {
     <Box
       sx={{
         maxWidth: '300px',
+        minHeight: '300px',
         backgroundColor: ' white',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        position: 'relative',
         padding: '20px',
       }}
     >
@@ -24,10 +26,10 @@ const Card = ({ icon, title, content }: Props) => {
         sx={{
           height: '80px',
           width: '80px',
-
+          position: 'absolute',
+          top: -40,
           borderRadius: '50%',
           backgroundColor: 'hsl(257, 27%, 26%)',
-          marginTop: '-60px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',

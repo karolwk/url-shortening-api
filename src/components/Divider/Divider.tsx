@@ -10,8 +10,10 @@ const Divider = ({ orientation }: Props) => {
   return (
     <Box
       sx={{
-        borderLeft: '9px solid',
-        height: '100px',
+        borderLeft: `${
+          orientation === 'horizontal' ? '9px solid' : '50px solid'
+        }`,
+        height: `${orientation === 'horizontal' ? '100px' : '10px'}`,
         borderColor: `${theme.palette.primary.main}`,
       }}
     />
