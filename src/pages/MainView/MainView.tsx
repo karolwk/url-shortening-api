@@ -58,43 +58,59 @@ const MainView = (props: Props) => {
         </Box>
       </Container>
       <Container
-        maxWidth="xl"
+        maxWidth={false}
         sx={{ padding: '24px', backgroundColor: 'hsl(225, 33%, 95%)' }}
       >
-        <ShortUrlForm />
-        <Box>
-          <Typography variant="h5">Advanced Statistics</Typography>
-          <Typography>
-            Track how your links are performing across the web with our advanced
-            statistics dashboard
-          </Typography>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Card
-            icon={<CardIcons iconVariant="brandRecognition" />}
-            title="Brand Recognition"
-            content="Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content"
-          />
-          <Divider orientation={!matches ? 'vertical' : 'horizontal'} />
-          <Card
-            icon={<CardIcons iconVariant="detailedRecords" />}
-            title="Detailed Records"
-            content="Gain insights int who is clicking your links. Knowing when and where people engage with your content helps inform better decisions."
-          />
-          <Divider orientation={!matches ? 'vertical' : 'horizontal'} />
-          <Card
-            icon={<CardIcons iconVariant="fullyCustomizable" size="48px" />}
-            title="Fully Customizable"
-            content="Improve brand awareness and content discoverability through customizable links, supercharging audience engagement."
-          />
-        </Box>
+        <Container maxWidth="xl">
+          <ShortUrlForm />
+          <Box
+            sx={{
+              marginTop: '4rem',
+              marginBottom: { xs: '11rem', md: '5rem' },
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Typography variant="h5" textAlign="center">
+              Advanced Statistics
+            </Typography>
+            <Typography
+              sx={{ maxWidth: '420px', textAlign: 'center', marginTop: '1rem' }}
+            >
+              Track how your links are performing across the web with our
+              advanced statistics dashboard
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', md: 'row' },
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Card
+              icon={<CardIcons iconVariant="brandRecognition" />}
+              marginTop="-100px"
+              title="Brand Recognition"
+              content="Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content"
+            />
+            <Divider orientation={!matches ? 'vertical' : 'horizontal'} />
+            <Card
+              icon={<CardIcons iconVariant="detailedRecords" />}
+              title="Detailed Records"
+              content="Gain insights int who is clicking your links. Knowing when and where people engage with your content helps inform better decisions."
+            />
+            <Divider orientation={!matches ? 'vertical' : 'horizontal'} />
+            <Card
+              icon={<CardIcons iconVariant="fullyCustomizable" size="48px" />}
+              title="Fully Customizable"
+              marginTop={!matches ? '100px' : '0'}
+              content="Improve brand awareness and content discoverability through customizable links, supercharging audience engagement."
+            />
+          </Box>
+        </Container>
       </Container>
       <Container
         maxWidth={false}

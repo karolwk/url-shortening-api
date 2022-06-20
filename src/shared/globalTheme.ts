@@ -49,6 +49,10 @@ export const theme = createTheme({
           color: 'white',
           fontWeight: 'bold',
         },
+        h5: {
+          color: 'black',
+          fontWeight: 'bold',
+        },
         subtitle2: {
           fontWeight: 'bold',
         },

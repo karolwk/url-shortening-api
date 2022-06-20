@@ -5,18 +5,22 @@ type Props = {
   icon: ReactElement;
   title: string;
   content: string;
+  marginTop?: string;
 };
 
-const Card = ({ icon, title, content }: Props) => {
+const Card = ({ icon, title, content, marginTop }: Props) => {
   return (
     <Box
       sx={{
-        maxWidth: '300px',
+        maxWidth: '500px',
+        width: { xs: '100%', md: '100%' },
+        marginTop: marginTop,
         minHeight: '300px',
         backgroundColor: ' white',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+
+        alignItems: { xs: 'center', md: 'flex-start' },
         justifyContent: 'center',
         position: 'relative',
         padding: '20px',
@@ -39,14 +43,17 @@ const Card = ({ icon, title, content }: Props) => {
       </Box>
       <Typography
         variant="h5"
-        textAlign="center"
         color="black"
         fontWeight="700"
-        margin="15px"
+        margin="15px 0 15px 0"
+        sx={{ textAlign: { xs: 'center', md: 'left' } }}
       >
         {title}
       </Typography>
-      <Typography textAlign="center" fontWeight="500">
+      <Typography
+        fontWeight="500"
+        sx={{ textAlign: { xs: 'center', md: 'left' } }}
+      >
         {content}
       </Typography>
     </Box>
