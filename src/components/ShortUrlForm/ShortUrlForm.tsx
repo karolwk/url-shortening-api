@@ -6,6 +6,7 @@ import {
   Alert,
   Typography,
   Divider,
+  Link,
 } from '@mui/material';
 
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -156,23 +157,47 @@ const ShortUrlForm = (props: Props) => {
             flexDirection: { xs: 'column', md: 'row' },
             gap: '1em',
             padding: '1em',
+            backgroundColor: 'white',
+            marginTop: '1em',
+            borderRadius: '5px',
           }}
         >
           <Typography
-            sx={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
+            sx={{
+              textOverflow: 'ellipsis',
+              overflow: 'hidden',
+              whiteSpace: 'nowrap',
+
+              color: 'black',
+            }}
           >
             {ele.result.original_link}
           </Typography>
           <Divider sx={{ display: { xs: 'block', md: 'none' } }} />
 
-          <Typography> {ele.result.full_short_link2}</Typography>
+          <Typography>
+            <Link
+              underline="hover"
+              href={ele.result.full_short_link2 as string}
+            >
+              {ele.result.full_short_link2}
+            </Link>
+          </Typography>
           {clickedBtn === index ? (
-            <Button disabled sx={{ backgroundColor: 'purple !important' }}>
+            <Button
+              disabled
+              sx={{
+                backgroundColor: 'purple !important',
+                width: { xs: '100%', md: 'fit-content' },
+                borderRadius: '5px',
+              }}
+            >
               Copied!
             </Button>
           ) : (
             <Button
               variant="contained"
+              sx={{ width: '100%', borderRadius: '5px' }}
               onClick={(e) =>
                 copyToClipboard(e, ele.result.full_short_link2, index)
               }
