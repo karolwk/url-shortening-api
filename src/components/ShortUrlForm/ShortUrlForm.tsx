@@ -95,21 +95,24 @@ const ShortUrlForm = (props: Props) => {
     <Box
       component="form"
       onSubmit={handleSubmit}
-      sx={{ backgroundColor: 'transparent' }}
+      sx={{ backgroundColor: 'transparent', marginTop: '-90px' }}
     >
       {error && handleError(error)}
       <Box
         sx={{
           display: 'flex',
-          borderRadius: '5px',
+          borderRadius: '10px',
           flexDirection: { xs: 'column', md: 'row' },
 
           alignItems: ' stretch',
           backgroundColor: 'hsl(257, 27%, 26%)',
-          backgroundImage: 'url(images/bg-shorten-mobile.svg)',
+          backgroundImage: {
+            xs: 'url(images/bg-shorten-mobile.svg)',
+            md: 'url(images/bg-shorten-desktop.svg)',
+          },
           backgroundPosition: 'right top',
           backgroundRepeat: 'no-repeat',
-          padding: '1em',
+          padding: { xs: '1.5em', md: '3em' },
           gap: '1em',
         }}
       >
@@ -125,7 +128,7 @@ const ShortUrlForm = (props: Props) => {
             flexGrow: 2,
 
             '& .MuiOutlinedInput-root': {
-              borderRadius: '15px',
+              borderRadius: '5px',
               backgroundColor: 'white',
               height: '3em',
             },
@@ -138,9 +141,8 @@ const ShortUrlForm = (props: Props) => {
           variant="contained"
           type="submit"
           loading={isLoading}
-          loadingPosition="end"
           sx={{
-            flexGrow: 0.5,
+            width: { xs: '100%', md: '20%' },
             borderRadius: '5px',
             maxHeight: '3em',
           }}
@@ -155,6 +157,8 @@ const ShortUrlForm = (props: Props) => {
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
+            alignItems: { xs: 'unset', md: 'center' },
+            justifyContent: { xs: 'unset', md: 'space-between' },
             gap: '1em',
             padding: '1em',
             backgroundColor: 'white',
@@ -174,37 +178,49 @@ const ShortUrlForm = (props: Props) => {
             {ele.result.original_link}
           </Typography>
           <Divider sx={{ display: { xs: 'block', md: 'none' } }} />
+          <Box
+            sx={{
+              display: 'flex',
+              gap: '1em',
+              flexDirection: { xs: 'column', md: 'row' },
+              alignItems: { xs: 'unset', md: 'center' },
+            }}
+          >
+            <Typography sx={{ justifySelf: 'flex-end' }}>
+              <Link
+                underline="hover"
+                href={ele.result.full_short_link2 as string}
+              >
+                {ele.result.full_short_link2}
+              </Link>
+            </Typography>
 
-          <Typography>
-            <Link
-              underline="hover"
-              href={ele.result.full_short_link2 as string}
-            >
-              {ele.result.full_short_link2}
-            </Link>
-          </Typography>
-          {clickedBtn === index ? (
-            <Button
-              disabled
-              sx={{
-                backgroundColor: 'purple !important',
-                width: { xs: '100%', md: 'fit-content' },
-                borderRadius: '5px',
-              }}
-            >
-              Copied!
-            </Button>
-          ) : (
-            <Button
-              variant="contained"
-              sx={{ width: '100%', borderRadius: '5px' }}
-              onClick={(e) =>
-                copyToClipboard(e, ele.result.full_short_link2, index)
-              }
-            >
-              Copy
-            </Button>
-          )}
+            {clickedBtn === index ? (
+              <Button
+                disabled
+                sx={{
+                  backgroundColor: 'purple !important',
+                  width: { xs: '100%', md: '150px' },
+                  borderRadius: '5px',
+                }}
+              >
+                Copied!
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                sx={{
+                  width: { xs: '100%', md: '150px' },
+                  borderRadius: '5px',
+                }}
+                onClick={(e) =>
+                  copyToClipboard(e, ele.result.full_short_link2, index)
+                }
+              >
+                Copy
+              </Button>
+            )}
+          </Box>
         </Box>
       ))}
     </Box>

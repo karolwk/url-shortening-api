@@ -21,6 +21,10 @@ declare module '@mui/material/styles' {
   }
 }
 
+const colors = {
+  header: 'hsl(255, 11%, 22%)',
+};
+
 export const theme = createTheme({
   typography: {
     fontFamily: 'Poppins, sans-serif',
@@ -42,7 +46,7 @@ export const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         h2: {
-          color: 'black',
+          color: 'hsl(255, 11%, 22%)',
           fontWeight: 'bold',
         },
         h4: {
@@ -54,7 +58,7 @@ export const theme = createTheme({
           fontWeight: 'bold',
         },
         subtitle2: {
-          fontWeight: 'bold',
+          fontWeight: '500',
         },
       },
     },

@@ -16,7 +16,7 @@ const MainView = (props: Props) => {
 
   return (
     <>
-      <Container maxWidth="xl" sx={{ padding: '24px' }}>
+      <Container maxWidth="xl" sx={{ padding: '24px', marginBottom: '5rem' }}>
         <Box
           sx={{
             display: 'flex',
