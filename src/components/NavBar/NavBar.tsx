@@ -32,7 +32,7 @@ const NavBar = (props: Props) => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <IconButton>
-            <Logo />
+            <Logo htmlColor="black" />
           </IconButton>
           <Box
             sx={{
@@ -65,6 +65,7 @@ const NavBar = (props: Props) => {
                   color: 'secondary',
                   display: 'block',
                   textTransform: 'capitalize',
+                  '&:hover': { color: 'black' },
                 }}
               >
                 {page}
