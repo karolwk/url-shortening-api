@@ -19,37 +19,50 @@ const MainView = (props: Props) => {
       <Container maxWidth="xl" sx={{ padding: '24px', marginBottom: '5rem' }}>
         <Box
           sx={{
+            margin: '24px',
             display: 'flex',
             flexWrap: { xs: 'wrap-reverse', md: 'nowrap' },
             justifyContent: { xs: 'center', md: 'normal' },
-            gap: '5rem',
+            gap: '4rem',
           }}
         >
           <Box
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignContent: 'center',
+              alignItems: 'center',
               justifyContent: 'center',
+              gap: '1rem',
               maxWidth: '600px',
-              textAlign: 'center',
+              textAlign: { xs: 'center', md: 'left' },
             }}
           >
-            <Typography variant={!matches ? 'h2' : 'h4'}>
+            <Typography
+              variant="h2"
+              sx={{ fontSize: { xs: '2rem', md: '3rem' } }}
+            >
               More than just shorter links.
             </Typography>
             <Typography variant="subtitle2">
               Build your brand's recognition and get detailed insights on how
               your links are performing.
             </Typography>
-            <Button variant="contained">Get Started</Button>
+            <Button
+              variant="contained"
+              sx={{ alignSelf: { md: 'flex-start' } }}
+            >
+              Get Started
+            </Button>
           </Box>
           <Box
             sx={{
-              maxWidth: '600px',
-              minWidth: '300px',
+              maxWidth: { xs: '550px', md: '750px' },
+              minWidth: { xs: '300px', md: '550px' },
+              marginRight: '-1000px',
 
               objectFit: 'cover',
+
+              '& > img': {},
             }}
           >
             <img src="/images/illustration-working.svg" width="100%" />
