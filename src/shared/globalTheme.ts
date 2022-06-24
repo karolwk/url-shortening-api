@@ -74,6 +74,7 @@ export const theme = createTheme({
       styleOverrides: {
         body: {
           margin: 0,
+          overflowX: 'hidden',
         },
       },
     },
