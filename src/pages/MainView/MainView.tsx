@@ -39,17 +39,24 @@ const MainView = (props: Props) => {
           >
             <Typography
               variant="h2"
-              sx={{ fontSize: { xs: '2rem', md: '3rem' } }}
+              sx={{ fontSize: { xs: '2rem', md: '4rem' } }}
             >
               More than just shorter links.
             </Typography>
-            <Typography variant="subtitle2">
+            <Typography
+              variant="subtitle2"
+              fontSize={{ xs: '1rem', md: '1.3rem' }}
+            >
               Build your brand's recognition and get detailed insights on how
               your links are performing.
             </Typography>
             <Button
               variant="contained"
-              sx={{ alignSelf: { md: 'flex-start' } }}
+              sx={{
+                alignSelf: { md: 'flex-start' },
+                padding: '0.5rem 2rem 0.5rem 2rem',
+                borderRadius: '50px',
+              }}
             >
               Get Started
             </Button>
@@ -57,12 +64,11 @@ const MainView = (props: Props) => {
           <Box
             sx={{
               maxWidth: { xs: '550px', md: '750px' },
-              minWidth: { xs: '300px', md: '550px' },
-              marginRight: '-1000px',
+              minWidth: { xs: '320px', md: '550px' },
 
-              objectFit: 'cover',
+              //backgroundSize: 'cover',
 
-              '& > img': {},
+              // '& > img': { marginLeft: '100px' },
             }}
           >
             <img src="/images/illustration-working.svg" width="100%" />
