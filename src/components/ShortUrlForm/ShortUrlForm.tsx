@@ -129,11 +129,13 @@ const ShortUrlForm = (props: Props) => {
 
             '& .MuiOutlinedInput-root': {
               borderRadius: '5px',
+
               backgroundColor: 'white',
-              height: '3em',
+              color: 'black',
             },
-            '& input:invalid': {
-              borderWidth: 4,
+
+            '& .MuiOutlinedInput-root.Mui-error': {
+              color: 'red',
             },
           }}
         />
@@ -144,7 +146,6 @@ const ShortUrlForm = (props: Props) => {
           sx={{
             width: { xs: '100%', md: '20%' },
             borderRadius: '5px',
-            maxHeight: '3em',
           }}
         >
           {isLoading ? 'Loading...' : 'Shorten it!'}
@@ -199,7 +200,7 @@ const ShortUrlForm = (props: Props) => {
               <Button
                 disabled
                 sx={{
-                  backgroundColor: 'purple !important',
+                  backgroundColor: 'hsl(260, 8%, 14%) !important',
                   width: { xs: '100%', md: '150px' },
                   borderRadius: '5px',
                 }}
