@@ -6,37 +6,17 @@ import ShortUrlForm from '../../components/ShortUrlForm/ShortUrlForm';
 import CardIcons from '../../assets/CardIcons';
 import Card from '../../components/Card/Card';
 import Divider from '../../components/Divider/Divider';
-import Footer from '../../components/Footer/Footer';
+import { mainViewStyles } from './MainView.styles';
 
-type Props = {};
-
-const MainView = (props: Props) => {
+const MainView = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <>
       <Container maxWidth="xl" sx={{ padding: '24px', marginBottom: '5rem' }}>
-        <Box
-          sx={{
-            margin: '24px',
-            display: 'flex',
-            flexWrap: { xs: 'wrap-reverse', md: 'nowrap' },
-            justifyContent: { xs: 'center', md: 'normal' },
-            gap: '4rem',
-          }}
-        >
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '1rem',
-              maxWidth: '600px',
-              textAlign: { xs: 'center', md: 'left' },
-            }}
-          >
+        <Box sx={mainViewStyles.bannerContainer}>
+          <Box sx={mainViewStyles.moreThenLinksContainer}>
             <Typography
               variant="h2"
               sx={{ fontSize: { xs: '2rem', md: '4rem' } }}
@@ -50,29 +30,21 @@ const MainView = (props: Props) => {
               Build your brand's recognition and get detailed insights on how
               your links are performing.
             </Typography>
-            <Button
-              variant="contained"
-              sx={{
-                alignSelf: { md: 'flex-start' },
-                padding: '0.5rem 2rem 0.5rem 2rem',
-                borderRadius: '50px',
-              }}
-            >
+            <Button variant="contained" sx={mainViewStyles.moreThenLinksBtn}>
               Get Started
             </Button>
           </Box>
           <Box
             sx={{
               maxWidth: { xs: '550px', md: '750px' },
-              minWidth: { xs: '320px', md: '550px' },
-
-              //backgroundSize: 'cover',
-
-              // '& > img': { marginLeft: '100px' },
+              minWidth: { xs: '320px', md: '400px' },
             }}
           >
-            <img src="/images/illustration-working.svg" width="100%" />
-            {/* {matches ? <WorkingSVG viewBox="0 0 1100 723" /> : <WorkingSVG />} */}
+            <img
+              src="/images/illustration-working.svg"
+              alt="ilustration of person working"
+              width="100%"
+            />
           </Box>
         </Box>
       </Container>
@@ -82,33 +54,16 @@ const MainView = (props: Props) => {
       >
         <Container maxWidth="xl">
           <ShortUrlForm />
-          <Box
-            sx={{
-              marginTop: '4rem',
-              marginBottom: { xs: '11rem', md: '5rem' },
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Typography variant="h5" textAlign="center">
+          <Box sx={mainViewStyles.advancedStatContainer}>
+            <Typography variant="h2" sx={mainViewStyles.advencedStatHeader}>
               Advanced Statistics
             </Typography>
-            <Typography
-              sx={{ maxWidth: '420px', textAlign: 'center', marginTop: '1rem' }}
-            >
+            <Typography sx={mainViewStyles.advencedStatSubtitle}>
               Track how your links are performing across the web with our
               advanced statistics dashboard
             </Typography>
           </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: { xs: 'column', md: 'row' },
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
+          <Box sx={mainViewStyles.cardsContainer}>
             <Card
               icon={<CardIcons iconVariant="brandRecognition" />}
               marginTop="-100px"
@@ -131,37 +86,14 @@ const MainView = (props: Props) => {
           </Box>
         </Container>
       </Container>
-      <Container
-        maxWidth={false}
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: 'hsl(257, 27%, 26%)',
-          backgroundImage: 'url(images/bg-boost-mobile.svg)',
-          backgroundPosition: 'right top',
-          backgroundRepeat: 'no-repeat',
-
-          minHeight: '200px',
-        }}
-      >
+      <Container maxWidth={false} sx={mainViewStyles.callToActionContainer}>
         <Typography variant="h5" color="white">
           Boost your links today
         </Typography>
-        <Button
-          variant="contained"
-          sx={{
-            marginTop: '1rem',
-            width: 'fit-content',
-            padding: '10px 2em 10px 2em',
-            borderRadius: '30px',
-          }}
-        >
+        <Button variant="contained" sx={mainViewStyles.callToActionBtn}>
           Get Started
         </Button>
       </Container>
-      <Footer />
     </>
   );
 };
