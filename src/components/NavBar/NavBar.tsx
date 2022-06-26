@@ -34,13 +34,7 @@ const NavBar = (props: Props) => {
           <IconButton>
             <Logo htmlColor="black" />
           </IconButton>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'flex', md: 'none' },
-              justifyContent: 'end',
-            }}
-          >
+          <Box sx={navBarStyles.mobileMenu}>
             <MobileMenu
               pages={pages}
               sx={navBarStyles.popmenu}
@@ -50,23 +44,12 @@ const NavBar = (props: Props) => {
             ></MobileMenu>
           </Box>
 
-          <Box
-            sx={{
-              flexGrow: { xs: 0, md: 1 },
-              display: { xs: 'none', md: 'flex' },
-            }}
-          >
+          <Box sx={navBarStyles.desktopLinks}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  color: 'secondary',
-                  display: 'block',
-                  textTransform: 'capitalize',
-                  '&:hover': { color: 'black' },
-                }}
+                sx={navBarStyles.navMenuBtn}
               >
                 {page}
               </Button>
