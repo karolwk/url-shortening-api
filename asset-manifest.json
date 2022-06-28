@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/url-shortening-api/static/js/main.a447d38b.js",
+    "main.js": "/url-shortening-api/static/js/main.e30fca40.js",
     "index.html": "/url-shortening-api/index.html",
-    "main.a447d38b.js.map": "/url-shortening-api/static/js/main.a447d38b.js.map"
+    "main.e30fca40.js.map": "/url-shortening-api/static/js/main.e30fca40.js.map"
   },
   "entrypoints": [
-    "static/js/main.a447d38b.js"
+    "static/js/main.e30fca40.js"
   ]
 }
