@@ -19,7 +19,7 @@ import { useGetShortedDataMutation } from '../../store/services/api';
 import { shortUrlFormStyles } from './ShortUrlForm.styles';
 
 const ShortUrlForm = () => {
-  const [open, setOpen] = useState(true);
+  const [openSnackBar, setOpenSnackBar] = useState(true);
   const [clickedBtn, setClickedBtn] = useState(-1);
   const [validateError, setValidateError] = useState(false);
   const [inputState, setInputState] = useState('');
@@ -30,7 +30,7 @@ const ShortUrlForm = () => {
   const getData = async (url: string) => {
     try {
       await shortDomain(url);
-      !open && setOpen(true);
+      !openSnackBar && setOpenSnackBar(true);
       inputState && setInputState('');
     } catch {
       console.log(error);
@@ -70,11 +70,11 @@ const ShortUrlForm = () => {
 
     return (
       <Snackbar
-        open={open}
+        open={openSnackBar}
         autoHideDuration={6000}
-        onClose={() => setOpen(false)}
+        onClose={() => setOpenSnackBar(false)}
       >
-        <Alert severity="error" onClose={() => setOpen(false)}>
+        <Alert severity="error" onClose={() => setOpenSnackBar(false)}>
           {`Something went wrong! Error details: ${errMsg}`}
         </Alert>
       </Snackbar>
