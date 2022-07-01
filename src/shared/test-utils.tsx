@@ -21,13 +21,13 @@ function render(
   {
     //@ts-ignore
     preloadedState,
-    store = { mainStore },
+    store = mainStore,
     ...renderOptions
   } = {}
 ) {
   function Wrapper({ children }: WrapperProps) {
     return (
-      <Provider store={mainStore}>
+      <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </PersistGate>
