@@ -1,4 +1,4 @@
-import { render, screen, handlers } from '../../shared/test-utils';
+import { render, screen } from '../../shared/test-utils';
 import '@testing-library/jest-dom/extend-expect';
 import Footer from './Footer';
 
