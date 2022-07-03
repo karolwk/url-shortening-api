@@ -8,6 +8,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { theme } from '../shared/globalTheme';
+import { SvgIcon } from '@mui/material';
 interface WrapperProps {
   children: React.ReactElement;
 }
@@ -67,6 +68,24 @@ export const handlers = [
     return res(ctx.status(400));
   }),
 ];
+
+// Custom icon for testing
+
+export const TestIcon = () => {
+  return (
+    <svg height="100" width="100" aria-label="test-icon">
+      <circle
+        cx="50"
+        cy="50"
+        r="40"
+        stroke="black"
+        stroke-width="3"
+        fill="red"
+      />
+      Sorry, your browser does not support inline SVG.
+    </svg>
+  );
+};
 
 export * from '@testing-library/react';
 export { render };
