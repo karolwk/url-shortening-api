@@ -10,11 +10,9 @@ import AuthMenu from '../AuthMenu/AuthMenu';
 import Logo from '../../assets/Logo';
 import { IconButton } from '@mui/material';
 
-type Props = {};
+type Props = { pages?: string[] };
 
-const pages = ['Products', 'Pricing', 'Blog'];
-
-const NavBar = (props: Props) => {
+const NavBar = ({ pages = ['Products', 'Pricing', 'Blog'] }: Props) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -32,7 +30,7 @@ const NavBar = (props: Props) => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <IconButton>
-            <Logo htmlColor="black" />
+            <Logo htmlColor="black" titleAccess="Logo" />
           </IconButton>
           <Box sx={navBarStyles.mobileMenu}>
             <MobileMenu
