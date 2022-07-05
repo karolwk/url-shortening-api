@@ -8,7 +8,8 @@ import { ThemeProvider } from '@mui/material/styles';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { theme } from '../shared/globalTheme';
-import { SvgIcon } from '@mui/material';
+import { ShortCodeURL } from './types';
+
 interface WrapperProps {
   children: React.ReactElement;
 }
@@ -40,18 +41,17 @@ function render(
 
 // Mock JSON API response
 
-export const jsonResponse = {
-  ip: '127.0.0.1',
-  location: {
-    country: 'Good Response',
-    region: '',
-    city: '',
-    lat: 0,
-    lng: 0,
-    postalCode: '',
-    timezone: '',
+export const jsonResponse: ShortCodeURL = {
+  ok: true,
+  result: {
+    code: 'TEST1',
+    short_link: 'http:/test.net/short_link',
+    short_link2: 'http:/test.net/short_link2',
+    full_short_link2: 'http:/test.net/full_short_link2',
+    share_link: 'http:/test.net/share_link',
+    full_share_link: 'http:/test.net/full_share_link',
+    original_link: 'http:/test.net/original_link',
   },
-  isp: 'SUPERISP (RFC1122, Section 3.2.1.3)',
 };
 
 // Custom handlers for API requests that will be used in tests
