@@ -41,7 +41,7 @@ const MainView = () => {
             }}
           >
             <img
-              src="images/illustration-working.svg"
+              src="url-shortening-api/images/illustration-working.svg"
               alt="ilustration of person working"
               width="100%"
             />
