@@ -62,8 +62,8 @@ export const handlers = [
   rest.get('https://api.ipify.org', (req, res, ctx) => {
     const param = req.url.searchParams;
 
-    if (param.get('format') === 'text') {
-      return res(ctx.body('127.0.0.1'));
+    if (param.get('url') === 'test.pl/test/') {
+      return res(ctx.body(JSON.stringify(jsonResponse)));
     }
     return res(ctx.status(400));
   }),
