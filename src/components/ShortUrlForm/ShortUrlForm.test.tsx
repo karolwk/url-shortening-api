@@ -33,7 +33,5 @@ test('user should get three results of shortening API', async () => {
 
   fireEvent.input(input, { target: { value: 'test.pl/test/' } });
   fireEvent.click(button);
-  await waitFor(() => screen.findByText(/Copy/));
-  //@ts-ignore
-  screen.debug();
+  await waitFor(() => screen.findByText(/full_short_link2/));
 });
