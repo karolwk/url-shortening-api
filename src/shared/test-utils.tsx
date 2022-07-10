@@ -59,11 +59,12 @@ export const jsonResponse: ShortCodeURL = {
 export const handlers = [
   // Provide request handlers
 
-  rest.get('https://api.ipify.org', (req, res, ctx) => {
+  rest.get('https://api.shrtco.de/v2/shorten', (req, res, ctx) => {
     const param = req.url.searchParams;
+    console.log(param + 'dupa');
 
     if (param.get('url') === 'test.pl/test/') {
-      return res(ctx.body(JSON.stringify(jsonResponse)));
+      return res(ctx.body(JSON.stringify(jsonResponse)), ctx.status(200));
     }
     return res(ctx.status(400));
   }),
